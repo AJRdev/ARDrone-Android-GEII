@@ -32,8 +32,9 @@ Our Project uses following libraries :
 
 * Vitamio : https://github.com/yixia/VitamioBundle
 Used to handle the Drone’s video stream
-* OpenCV :
-    Used to do all image processing for color detection and tracking
+* OpenCV : http://opencv.org/
+Used to do all image processing for color detection and tracking
+
 ###Documentation:
 * AR Drone Developer Guide : https://projects.ardrone.org/wiki/ardrone-api/Developer_Guide
 * Open CV Documentation : http://docs.opencv.org/
