@@ -35,7 +35,7 @@ Used to handle the Drone’s video stream
 * OpenCV :
     Used to do all image processing for color detection and tracking
 ###Documentation:
-* AR Drone Developer Guide :
+* AR Drone Developer Guide : https://projects.ardrone.org/wiki/ardrone-api/Developer_Guide
 * Open CV Documentation : http://docs.opencv.org/
 * Vitamio Documentation : https://www.vitamio.org/en/docs/
 * Handling Controler Actions : http://developer.android.com/training/game-controllers/controller-input.html
