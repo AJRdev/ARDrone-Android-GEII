@@ -1,4 +1,4 @@
-package com.example.projet_er4_v1;
+package com.project.ardrone_android_geii;
 
 import java.util.List;
 
@@ -11,6 +11,8 @@ import org.opencv.core.Rect;
 import org.opencv.core.Scalar;
 import org.opencv.core.Size;
 import org.opencv.imgproc.Imgproc;
+
+import com.example.projet_er4_v1.R;
 
 import io.vov.vitamio.LibsChecker;
 import android.app.ActionBar;

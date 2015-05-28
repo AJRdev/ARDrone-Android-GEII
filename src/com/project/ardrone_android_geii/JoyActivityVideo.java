@@ -1,4 +1,6 @@
-package com.example.projet_er4_v1;
+package com.project.ardrone_android_geii;
+
+import com.example.projet_er4_v1.R;
 
 import io.vov.vitamio.LibsChecker;
 import io.vov.vitamio.MediaPlayer;

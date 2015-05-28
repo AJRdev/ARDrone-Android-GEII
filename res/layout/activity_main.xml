@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    tools:context="com.example.projet_er4_v1.Menu_Activity">
+    tools:context="com.project.ardrone_android_geii.Menu_Activity">
 
     <Button
         android:id="@+id/button4"

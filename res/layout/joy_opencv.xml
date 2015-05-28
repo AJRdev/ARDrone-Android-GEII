@@ -19,7 +19,7 @@
             android:layout_gravity="center" />
     </io.vov.vitamio.widget.CenterLayout>
 
-    <com.example.projet_er4_v1.JoystickView
+    <com.project.ardrone_android_geii.JoystickView
         android:id="@+id/joystickView02"
         android:layout_width="120.0dip"
         android:layout_height="120.0dip"
@@ -100,7 +100,7 @@
         android:textColor="#26C4EC"
         android:textSize="12sp" />
 
-    <com.example.projet_er4_v1.JoystickView
+    <com.project.ardrone_android_geii.JoystickView
         android:id="@+id/joystickView01"
         android:layout_width="120.0dip"
         android:layout_height="120.0dip"

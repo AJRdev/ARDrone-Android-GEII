@@ -1,4 +1,4 @@
-package com.example.projet_er4_v1;	//PROGRAMME AVEC FONCTION
+package com.project.ardrone_android_geii;	//PROGRAMME AVEC FONCTION
 
 
 import java.util.concurrent.Executors;
@@ -8,6 +8,8 @@ import java.util.concurrent.TimeUnit;
 import org.opencv.android.BaseLoaderCallback;
 import org.opencv.android.LoaderCallbackInterface;
 import org.opencv.android.OpenCVLoader;
+
+import com.example.projet_er4_v1.R;
 
 import android.app.Activity;
 import android.app.AlertDialog.Builder;

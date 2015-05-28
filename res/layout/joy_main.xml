@@ -4,7 +4,7 @@
     android:layout_height="fill_parent"
     android:background="@drawable/joy">
 	
-    <com.example.projet_er4_v1.JoystickView
+    <com.project.ardrone_android_geii.JoystickView
         android:id="@+id/joystickView02"
         android:layout_width="118.0dip"
         android:layout_height="118.0dip"
@@ -109,7 +109,7 @@
         android:layout_marginTop = "45dp" 
         android:alpha="0"/>
 
-    <com.example.projet_er4_v1.JoystickView
+    <com.project.ardrone_android_geii.JoystickView
         android:id="@+id/joystickView01"
         android:layout_width="120.0dip"
         android:layout_height="120.0dip"

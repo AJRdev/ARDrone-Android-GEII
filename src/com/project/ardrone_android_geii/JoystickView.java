@@ -1,4 +1,4 @@
-package com.example.projet_er4_v1;
+package com.project.ardrone_android_geii;
 
 import android.content.Context;
 import android.graphics.Canvas;

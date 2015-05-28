@@ -1,11 +1,12 @@
-package com.example.projet_er4_v1;	//PROGRAMME AVEC FONCTION
+package com.project.ardrone_android_geii;	//PROGRAMME AVEC FONCTION
 
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
-import com.example.projet_er4_v1.JoyActivityVideo.*;
+import com.example.projet_er4_v1.R;
+import com.project.ardrone_android_geii.JoyActivityVideo.*;
 
 import android.app.Activity;
 import android.app.AlertDialog.Builder;
