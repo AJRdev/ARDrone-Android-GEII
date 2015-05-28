@@ -20,6 +20,7 @@ The differents goals reached at this point are :
 ###How to Install:
 * Download and unzip  “AR-Drone-Android.zip” into an arbitory directory.
 * In your Eclipse, choose the chosen directory for the current workspace and then import your project as an “Android Project”
+* Fix possible by adding the Vitamio Library : https://github.com/AJRdev/ARDrone-Android/wiki/Vitamio-Integration
 * Build the project on your android phone
 * Turn on your Drone and connect your phone to the AR Drone Wifi hotspot
 * Launch the AR-Drone-Android application, click on the “Pilotage” button and then on the “Décollage” button
