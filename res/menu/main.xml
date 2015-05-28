@@ -1,0 +1,23 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.projet_er4_v1.MainActivity" >
+
+    
+    
+    <item
+        android:id="@+id/cvmode"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/cvmode"/>
+    <item
+        android:id="@+id/videomode"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/videomode"/>
+    <item
+        android:id="@+id/novideo_mode"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/no_videomode"/>
+
+</menu>

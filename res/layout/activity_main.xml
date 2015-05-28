@@ -1,0 +1,39 @@
+<RelativeLayout android:background="@drawable/main"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context="com.example.projet_er4_v1.Menu_Activity">
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="145dp"
+        android:layout_height="34dp"
+        android:layout_marginLeft="101dp"
+        android:alpha="0"
+        android:layout_marginTop="115dp"
+        android:onClick="visualisation" />
+
+    <Button
+        android:id="@+id/button2"
+        
+        android:layout_width="132dp"
+        android:layout_height="34dp"
+        android:layout_marginLeft="103dp"
+        android:alpha="0"
+        android:layout_marginTop="226dp"
+        android:onClick="pilotage"
+         />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="132dp"
+        android:layout_height="34dp"
+        android:layout_alignLeft="@+id/button4"
+        android:layout_below="@+id/button2"
+        android:layout_marginTop="44dp"
+        android:alpha="0"
+        android:onClick="reinitialisation" />
+
+</RelativeLayout>

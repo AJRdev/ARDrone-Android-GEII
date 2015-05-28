@@ -1,0 +1,161 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <io.vov.vitamio.widget.CenterLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+        <requestFocus
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+        <TextureView
+            android:id="@+id/texture_view1"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center" />
+    </io.vov.vitamio.widget.CenterLayout>
+
+    <com.example.projet_er4_v1.JoystickView
+        android:id="@+id/joystickView02"
+        android:layout_width="120.0dip"
+        android:layout_height="120.0dip"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="27dp"
+        android:layout_marginRight="30dp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="133dp"
+        android:layout_marginLeft="325dp"
+        android:text="0"
+        android:textColor="#26C4EC"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="147dp"
+        android:layout_marginLeft="325dp"
+        android:text="0"
+        android:textColor="#26C4EC"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="108dp"
+        android:layout_marginLeft="325dp"
+        android:text="0"
+        android:textColor="#26C4EC"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="175dp"
+        android:layout_marginLeft="325dp"
+        android:text="0"
+        android:textColor="#26C4EC"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="162dp"
+        android:layout_marginLeft="325dp"
+        android:text="0"
+        android:textColor="#26C4EC"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="120dp"
+        android:layout_marginLeft="325dp"
+        android:text="0"
+        android:textColor="#26C4EC"
+        android:textSize="12sp" />
+
+    <com.example.projet_er4_v1.JoystickView
+        android:id="@+id/joystickView01"
+        android:layout_width="120.0dip"
+        android:layout_height="120.0dip"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="26dp"
+        android:layout_marginLeft="42dp" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="14dp"
+        android:text="00:00:00"
+        android:textColor="#26C4EC" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/joystickView02"
+        android:layout_toLeftOf="@+id/joystickView02"
+        android:onClick="atterissage"
+        android:text="Aterrissage" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/button2"
+        android:layout_alignBottom="@+id/button2"
+        android:layout_marginRight="40dp"
+        android:layout_toLeftOf="@+id/button2"
+        android:onClick="decollage"
+        android:text="Decollage" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/textView13"
+        android:onClick="OpenCV_Track"
+        android:text="OpenCV Trigger" />
+
+    <TextView
+        android:id="@+id/tCV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button3"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="18dp"
+        android:text="Synchro :" />
+
+</RelativeLayout>
