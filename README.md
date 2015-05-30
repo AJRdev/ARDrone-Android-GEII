@@ -1,4 +1,4 @@
-#ARDrone-Android
+#ARDrone-Android-GEII
 
 ##Description of the Project:
 
