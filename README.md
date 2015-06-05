@@ -1,4 +1,4 @@
-#ARDrone-Android
+#ARDrone-Android-GEII
 
 ##Description of the Project:
 
@@ -48,10 +48,10 @@ This project has been made by a group of 5 students of [the GEII (Electrical and
 
 **Students :**
 
-* Bouguerra Bilal
+* Bouguerra Bilel ([@BilelBgr](https://github.com/BilelBgr))
 * Dancre Antoine
 * Genoud Quentin
-* Nabhan Stephane
+* Nabhan Stephane ([@BlackStef](https://github.com/BlackStef))
 * Ranarivelo Andre ([@AJRdev](https://github.com/AJRdev))
 
 **Mentor :**
