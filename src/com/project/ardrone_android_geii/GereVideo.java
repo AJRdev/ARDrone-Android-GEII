@@ -12,7 +12,13 @@ import android.util.Log;
 
 
 
+/**
 
+ * 
+
+ * Class allowing to playback the video stream from the drone on a SurfaceView.
+ 
+ */
 public class GereVideo implements OnBufferingUpdateListener, OnCompletionListener, OnPreparedListener, OnVideoSizeChangedListener {
 	MediaPlayer mMediaPlayer;
 	JoyActivityVideo joyActivity;
@@ -26,6 +32,13 @@ public class GereVideo implements OnBufferingUpdateListener, OnCompletionListene
 
 	}
 
+	/**
+
+	 * 
+
+	 * Initializes the MediaPlayer and SurfaceHolder.
+	 
+	 */
 	void playVideo(){
 
 
@@ -56,7 +69,14 @@ public class GereVideo implements OnBufferingUpdateListener, OnCompletionListene
 		mMediaPlayer.setOnVideoSizeChangedListener(this);	
 
 	}
+	
+	/**
 
+	 * 
+
+	 * Destroys the MediaPlayer and release the ressources.
+	 
+	 */
 	void releaseMediaPlayer() {
 		if (mMediaPlayer != null) {
 			mMediaPlayer.release();
@@ -64,6 +84,13 @@ public class GereVideo implements OnBufferingUpdateListener, OnCompletionListene
 		}
 	}
 
+	/**
+
+	 * 
+
+	 * Set up the size of the video to the size of the screen and starts the playback.
+	 
+	 */
 	void startVideoPlayback() {
 		joyActivity.holder.setFixedSize(joyActivity.metrics.widthPixels, joyActivity.metrics.heightPixels);
 		mMediaPlayer.start();
@@ -90,11 +117,11 @@ public class GereVideo implements OnBufferingUpdateListener, OnCompletionListene
 		// TODO Auto-generated method stub
 		if(mp.getCurrentFrame() != null){
 
-			Log.v(TAG , "LA FRAME EST LA" );
+			Log.v(TAG , "Frame Received" );
 
 		}
 		else{
-			Log.v(TAG, "LA FRAME EST PAS PAS LA" );
+			Log.v(TAG, "Frame Not Received" );
 		}
 		
 	}

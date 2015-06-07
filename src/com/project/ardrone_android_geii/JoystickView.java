@@ -10,6 +10,10 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
+/**
+
+ * Class creating a draggable joystick on the screen.
+ */
 public class JoystickView extends View {
 
    
