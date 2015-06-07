@@ -26,6 +26,9 @@ The differents goals reached at this point are :
 * Launch the AR-Drone-Android application, click on the “Pilotage” button and then on the “Décollage” button
 You should now be able to control your Drone
 
+##Project's Wiki:
+
+Checkout the [Wiki](https://github.com/AJRdev/ARDrone-Android-GEII/wiki) for further information on the Project !
 
 ##Library Dependencies:
 
