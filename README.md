@@ -4,7 +4,7 @@
 
 
 The aim of this project is to completely control and monitor the Parrot AR. Drone 2.0 quadricopter from the Android platform.
-Including controlling the Drone with external devices connected by Bluetooth to the phone such as gamepads and process the Drone’s video stream to do object detection and tracking.
+Including controlling the Drone with external devices connected by Bluetooth to the phone such as gamepads and process the Drone’s video stream through [OpenCV](http://opencv.org/) to enable object detection and tracking.
 
 ##Status:
 
