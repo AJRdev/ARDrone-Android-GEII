@@ -10,8 +10,14 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.concurrent.TimeUnit;
 
+/**
 
-public class NavdataReceiver {					//DECLARATION
+ * 
+
+ * Class handling data received from the Drone's sensors.
+ 
+ */
+public class SensorData_Receiver {					//DECLARATION
 	
 	private InetAddress ip_addr;
 	private DatagramSocket socket;
@@ -21,7 +27,7 @@ public class NavdataReceiver {					//DECLARATION
 	private DatagramPacket nav_packet;
 	private DatagramPacket at_packet;
 	
-	public NavdataReceiver(DatagramSocket udp_socket){
+	public SensorData_Receiver(DatagramSocket udp_socket){
 		
 		this.socket = udp_socket;
 		try {

@@ -4,14 +4,20 @@ package com.project.ardrone_android_geii;
 
 import android.util.Log;
 
+/**
 
-public class GereThreadsOpenCV extends GereThreads{
+ * 
+
+ * Class derived from ThreadsManager managing the different threads of the application with OpenCV features enabled.
+ 
+ */
+public class ThreadsManager_OpenCV extends ThreadsManager{
 
 	private String CommandeGenere;
 
-	public GereThreadsOpenCV(GereDroneOpenCV Drone) {
+	public ThreadsManager_OpenCV(DroneManager_OpenCV Drone) {
 		super(Drone);
-		Log.v(JoyActivityOpenCV.TAG, "GereThreadsOpenCV : Constructor");
+		Log.v(DroneUI_OpenCV.TAG, "GereThreadsOpenCV : Constructor");
 	}
 
 	@Override
@@ -31,46 +37,46 @@ public class GereThreadsOpenCV extends GereThreads{
 		@Override
 		public void run() {			
 
-			Log.v(JoyActivityOpenCV.TAG, "GereThreadsOpenCV : TaskPilotage OpenCV Tracking");
+			Log.v(DroneUI_OpenCV.TAG, "GereThreadsOpenCV : TaskPilotage OpenCV Tracking");
 
 			do {
-				if(JoyActivityOpenCV.bOpenCV){
+				if(DroneUI_OpenCV.bOpenCV){
 
 				
-					Log.v(JoyActivityOpenCV.TAG, "GereThreadsOpenCV : TaskPilotage mVideoH :"+JoyActivityOpenCV.mVideoH);
-					Log.v(JoyActivityOpenCV.TAG, "GereThreadsOpenCV : TaskPilotage Pos Rect y :"+JoyActivityOpenCV.mRectangle.y);
+					Log.v(DroneUI_OpenCV.TAG, "GereThreadsOpenCV : TaskPilotage mVideoH :"+DroneUI_OpenCV.mVideoH);
+					Log.v(DroneUI_OpenCV.TAG, "GereThreadsOpenCV : TaskPilotage Pos Rect y :"+DroneUI_OpenCV.mRectangle.y);
 
-					if(JoyActivityOpenCV.mRectangle.x>(JoyActivityOpenCV.mVideoW/2)+(JoyActivityOpenCV.mVideoW/10)){
-						if(JoyActivityOpenCV.mRectangle.y>(JoyActivityOpenCV.mVideoH/2)+(JoyActivityOpenCV.mVideoH/10)){
+					if(DroneUI_OpenCV.mRectangle.x>(DroneUI_OpenCV.mVideoW/2)+(DroneUI_OpenCV.mVideoW/10)){
+						if(DroneUI_OpenCV.mRectangle.y>(DroneUI_OpenCV.mVideoH/2)+(DroneUI_OpenCV.mVideoH/10)){
 
-							CommandeGenere = "AT*PCMD="+mDroneCV.iVal+",1,"+0+","+GereCommande.iM5Pourcents+","+GereCommande.iM50Pourcents+","+GereCommande.i25Pourcents;
-							Log.v(JoyActivityOpenCV.TAG, "GereThreadsOpenCV : Je descends !");
+							CommandeGenere = "AT*PCMD="+mDroneCV.iVal+",1,"+0+","+JoystickCommandManager.iM5Pourcents+","+JoystickCommandManager.iM50Pourcents+","+JoystickCommandManager.i25Pourcents;
+							Log.v(DroneUI_OpenCV.TAG, "GereThreadsOpenCV : Je descends !");
 						}
-						else if(JoyActivityOpenCV.mRectangle.y<(JoyActivityOpenCV.mVideoH/2)-(JoyActivityOpenCV.mVideoH/8)){
+						else if(DroneUI_OpenCV.mRectangle.y<(DroneUI_OpenCV.mVideoH/2)-(DroneUI_OpenCV.mVideoH/8)){
 
 
-							CommandeGenere = "AT*PCMD="+mDroneCV.iVal+",1,"+0+","+GereCommande.iM5Pourcents+","+GereCommande.i25Pourcents+","+GereCommande.i25Pourcents;	
-							Log.v(JoyActivityOpenCV.TAG, "GereThreadsOpenCV : Je monte !");
+							CommandeGenere = "AT*PCMD="+mDroneCV.iVal+",1,"+0+","+JoystickCommandManager.iM5Pourcents+","+JoystickCommandManager.i25Pourcents+","+JoystickCommandManager.i25Pourcents;	
+							Log.v(DroneUI_OpenCV.TAG, "GereThreadsOpenCV : Je monte !");
 						}else{
-							CommandeGenere = "AT*PCMD="+mDroneCV.iVal+",1,"+0+","+GereCommande.iM5Pourcents+","+0+","+GereCommande.i25Pourcents;
+							CommandeGenere = "AT*PCMD="+mDroneCV.iVal+",1,"+0+","+JoystickCommandManager.iM5Pourcents+","+0+","+JoystickCommandManager.i25Pourcents;
 						}
 
 					}
-					else if(JoyActivityOpenCV.mRectangle.x<(JoyActivityOpenCV.mVideoW/2)-(JoyActivityOpenCV.mVideoW/10)){
+					else if(DroneUI_OpenCV.mRectangle.x<(DroneUI_OpenCV.mVideoW/2)-(DroneUI_OpenCV.mVideoW/10)){
 
 
-						if(JoyActivityOpenCV.mRectangle.y>(JoyActivityOpenCV.mVideoH/2)+(JoyActivityOpenCV.mVideoH/10)){
+						if(DroneUI_OpenCV.mRectangle.y>(DroneUI_OpenCV.mVideoH/2)+(DroneUI_OpenCV.mVideoH/10)){
 
-							CommandeGenere = "AT*PCMD="+mDroneCV.iVal+",1,"+0+","+GereCommande.iM5Pourcents+","+GereCommande.iM50Pourcents+","+GereCommande.iM25Pourcents;
-							Log.v(JoyActivityOpenCV.TAG, "GereThreadsOpenCV : Je descends !");
+							CommandeGenere = "AT*PCMD="+mDroneCV.iVal+",1,"+0+","+JoystickCommandManager.iM5Pourcents+","+JoystickCommandManager.iM50Pourcents+","+JoystickCommandManager.iM25Pourcents;
+							Log.v(DroneUI_OpenCV.TAG, "GereThreadsOpenCV : Je descends !");
 						}
-						else if(JoyActivityOpenCV.mRectangle.y<(JoyActivityOpenCV.mVideoH/2)-(JoyActivityOpenCV.mVideoH/8)){
+						else if(DroneUI_OpenCV.mRectangle.y<(DroneUI_OpenCV.mVideoH/2)-(DroneUI_OpenCV.mVideoH/8)){
 
 
-							CommandeGenere = "AT*PCMD="+mDroneCV.iVal+",1,"+0+","+GereCommande.iM5Pourcents+","+GereCommande.i25Pourcents+","+GereCommande.iM25Pourcents;	
-							Log.v(JoyActivityOpenCV.TAG, "GereThreadsOpenCV : Je monte !");
+							CommandeGenere = "AT*PCMD="+mDroneCV.iVal+",1,"+0+","+JoystickCommandManager.iM5Pourcents+","+JoystickCommandManager.i25Pourcents+","+JoystickCommandManager.iM25Pourcents;	
+							Log.v(DroneUI_OpenCV.TAG, "GereThreadsOpenCV : Je monte !");
 						}else{
-							CommandeGenere = "AT*PCMD="+mDroneCV.iVal+",1,"+0+","+GereCommande.iM5Pourcents+","+0+","+GereCommande.iM25Pourcents;
+							CommandeGenere = "AT*PCMD="+mDroneCV.iVal+",1,"+0+","+JoystickCommandManager.iM5Pourcents+","+0+","+JoystickCommandManager.iM25Pourcents;
 						}
 					}
 					else{
@@ -81,7 +87,7 @@ public class GereThreadsOpenCV extends GereThreads{
 					mDroneCV.EnvoiTrameUDP(CommandeGenere);						
 					mDroneCV.AttenteMs(50);
 				}else{
-					Log.v(JoyActivityOpenCV.TAG, "GereThreadsOpenCV : TaskPilotage run bOpenCV");
+					Log.v(DroneUI_OpenCV.TAG, "GereThreadsOpenCV : TaskPilotage run bOpenCV");
 					//INCREMENT LE NUMERO DE SEQUENCE
 					mDroneCV.IncrementSeq();	
 					//ASSEMBLAGE DE LA COMMANDE
@@ -110,45 +116,45 @@ public class GereThreadsOpenCV extends GereThreads{
 
 			
 
-				Log.v(JoyActivityOpenCV.TAG, "GereThreadsOpenCV : TaskPilotage run bOpenCV");
-				Log.v(JoyActivityOpenCV.TAG, "GereThreadsOpenCV : TaskPilotage mVideoH :"+JoyActivityOpenCV.mVideoH);
-				Log.v(JoyActivityOpenCV.TAG, "GereThreadsOpenCV : TaskPilotage Pos Rect y :"+JoyActivityOpenCV.mRectangle.y);
+				Log.v(DroneUI_OpenCV.TAG, "GereThreadsOpenCV : TaskPilotage run bOpenCV");
+				Log.v(DroneUI_OpenCV.TAG, "GereThreadsOpenCV : TaskPilotage mVideoH :"+DroneUI_OpenCV.mVideoH);
+				Log.v(DroneUI_OpenCV.TAG, "GereThreadsOpenCV : TaskPilotage Pos Rect y :"+DroneUI_OpenCV.mRectangle.y);
 
-				if(JoyActivityOpenCV.mRectangle.x>(JoyActivityOpenCV.mVideoW/2)+(JoyActivityOpenCV.mVideoW/10)){
-					if(JoyActivityOpenCV.mRectangle.y>(JoyActivityOpenCV.mVideoH/2)+(JoyActivityOpenCV.mVideoH/10)){
+				if(DroneUI_OpenCV.mRectangle.x>(DroneUI_OpenCV.mVideoW/2)+(DroneUI_OpenCV.mVideoW/10)){
+					if(DroneUI_OpenCV.mRectangle.y>(DroneUI_OpenCV.mVideoH/2)+(DroneUI_OpenCV.mVideoH/10)){
 
-						Log.v(JoyActivityOpenCV.TAG, "GereThreadsOpenCV : Je descends !");
-						CommandeGenere = DroneControl("0",GereCommande.iM5Pourcents,GereCommande.iM50Pourcents,GereCommande.i25Pourcents);
+						Log.v(DroneUI_OpenCV.TAG, "GereThreadsOpenCV : Je descends !");
+						CommandeGenere = DroneControl("0",JoystickCommandManager.iM5Pourcents,JoystickCommandManager.iM50Pourcents,JoystickCommandManager.i25Pourcents);
 
 
 					}
-					else if(JoyActivityOpenCV.mRectangle.y<(JoyActivityOpenCV.mVideoH/2)-(JoyActivityOpenCV.mVideoH/8)){
+					else if(DroneUI_OpenCV.mRectangle.y<(DroneUI_OpenCV.mVideoH/2)-(DroneUI_OpenCV.mVideoH/8)){
 
-						Log.v(JoyActivityOpenCV.TAG, "GereThreadsOpenCV : Je monte !");
-						CommandeGenere = DroneControl("0",GereCommande.iM5Pourcents,GereCommande.i25Pourcents,GereCommande.i25Pourcents);
+						Log.v(DroneUI_OpenCV.TAG, "GereThreadsOpenCV : Je monte !");
+						CommandeGenere = DroneControl("0",JoystickCommandManager.iM5Pourcents,JoystickCommandManager.i25Pourcents,JoystickCommandManager.i25Pourcents);
 
 					}else{
-						CommandeGenere = DroneControl("0",GereCommande.iM5Pourcents,"0",GereCommande.i25Pourcents);
+						CommandeGenere = DroneControl("0",JoystickCommandManager.iM5Pourcents,"0",JoystickCommandManager.i25Pourcents);
 
 					}
 
 				}
-				else if(JoyActivityOpenCV.mRectangle.x<(JoyActivityOpenCV.mVideoW/2)-(JoyActivityOpenCV.mVideoW/10)){
-					if(JoyActivityOpenCV.mRectangle.y>(JoyActivityOpenCV.mVideoH/2)+(JoyActivityOpenCV.mVideoH/10)){
+				else if(DroneUI_OpenCV.mRectangle.x<(DroneUI_OpenCV.mVideoW/2)-(DroneUI_OpenCV.mVideoW/10)){
+					if(DroneUI_OpenCV.mRectangle.y>(DroneUI_OpenCV.mVideoH/2)+(DroneUI_OpenCV.mVideoH/10)){
 
-						Log.v(JoyActivityOpenCV.TAG, "GereThreadsOpenCV : Je descends !");
-						CommandeGenere = DroneControl("0",GereCommande.iM5Pourcents,GereCommande.iM50Pourcents,GereCommande.iM25Pourcents);
+						Log.v(DroneUI_OpenCV.TAG, "GereThreadsOpenCV : Je descends !");
+						CommandeGenere = DroneControl("0",JoystickCommandManager.iM5Pourcents,JoystickCommandManager.iM50Pourcents,JoystickCommandManager.iM25Pourcents);
 
 
 					}
-					else if(JoyActivityOpenCV.mRectangle.y<(JoyActivityOpenCV.mVideoH/2)-(JoyActivityOpenCV.mVideoH/8)){
+					else if(DroneUI_OpenCV.mRectangle.y<(DroneUI_OpenCV.mVideoH/2)-(DroneUI_OpenCV.mVideoH/8)){
 
 
-						CommandeGenere = DroneControl("0",GereCommande.iM5Pourcents,GereCommande.i25Pourcents,GereCommande.iM25Pourcents);
+						CommandeGenere = DroneControl("0",JoystickCommandManager.iM5Pourcents,JoystickCommandManager.i25Pourcents,JoystickCommandManager.iM25Pourcents);
 
-						Log.v(JoyActivityOpenCV.TAG, "GereThreadsOpenCV : Je monte !");
+						Log.v(DroneUI_OpenCV.TAG, "GereThreadsOpenCV : Je monte !");
 					}else{
-						CommandeGenere = DroneControl("0",GereCommande.iM5Pourcents,"0",GereCommande.iM25Pourcents);
+						CommandeGenere = DroneControl("0",JoystickCommandManager.iM5Pourcents,"0",JoystickCommandManager.iM25Pourcents);
 					}
 				}
 				else{
@@ -274,12 +280,12 @@ public class GereThreadsOpenCV extends GereThreads{
 				mDroneCV.NavRec.ReceiveNavdata();
 				mDroneCV.NavRec.NoSleep();
 
-				GereDrone.iBatterie = mDroneCV.NavRec.GetBattery();
-				GereDrone.iAltitude = mDroneCV.NavRec.GetAltitude();			
-				GereDrone.iYaw = mDroneCV.NavRec.GetYaw();
-				GereDrone.iPitch = mDroneCV.NavRec.GetPitch();
-				GereDrone.iRoll = mDroneCV.NavRec.GetRoll();
-				GereDrone.iSpeed = mDroneCV.NavRec.GetSpeed();
+				DroneManager.iBatterie = mDroneCV.NavRec.GetBattery();
+				DroneManager.iAltitude = mDroneCV.NavRec.GetAltitude();			
+				DroneManager.iYaw = mDroneCV.NavRec.GetYaw();
+				DroneManager.iPitch = mDroneCV.NavRec.GetPitch();
+				DroneManager.iRoll = mDroneCV.NavRec.GetRoll();
+				DroneManager.iSpeed = mDroneCV.NavRec.GetSpeed();
 				mDroneCV.AttenteMs(30);
 
 
@@ -298,19 +304,19 @@ public class GereThreadsOpenCV extends GereThreads{
 
 			mDroneCV.AttenteMs(50);
 			mDroneCV.IncrementSeq();
-			mDroneCV.EnvoiTrameUDP("AT*CONFIG="+mDroneCV.iVal+",\"control:euler_angle_max\",\""+ReglageActivity.fAngleMax+"\"");
+			mDroneCV.EnvoiTrameUDP("AT*CONFIG="+mDroneCV.iVal+",\"control:euler_angle_max\",\""+SettingsManager.fAngleMax+"\"");
 
 			mDroneCV.AttenteMs(50);
 			mDroneCV.IncrementSeq();
-			mDroneCV.EnvoiTrameUDP("AT*CONFIG="+mDroneCV.iVal+",\"control:altitude_max\",\""+ReglageActivity.iAltMax+"\"");
+			mDroneCV.EnvoiTrameUDP("AT*CONFIG="+mDroneCV.iVal+",\"control:altitude_max\",\""+SettingsManager.iAltMax+"\"");
 
 			mDroneCV.AttenteMs(50);
 			mDroneCV.IncrementSeq();
-			mDroneCV.EnvoiTrameUDP("AT*CONFIG="+mDroneCV.iVal+",\"control:control_vz_max\",\""+ReglageActivity.iGazSpeed+"\"");
+			mDroneCV.EnvoiTrameUDP("AT*CONFIG="+mDroneCV.iVal+",\"control:control_vz_max\",\""+SettingsManager.iGazSpeed+"\"");
 
 			mDroneCV.AttenteMs(50);
 			mDroneCV.IncrementSeq();
-			mDroneCV.EnvoiTrameUDP("AT*CONFIG="+mDroneCV.iVal+",\"control:control_yaw\",\""+ReglageActivity.fYawSpeed+"\"");
+			mDroneCV.EnvoiTrameUDP("AT*CONFIG="+mDroneCV.iVal+",\"control:control_yaw\",\""+SettingsManager.fYawSpeed+"\"");
 
 			mDroneCV.AttenteMs(50);
 			mDroneCV.IncrementSeq();

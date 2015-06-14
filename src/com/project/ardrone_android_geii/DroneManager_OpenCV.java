@@ -3,26 +3,33 @@ package com.project.ardrone_android_geii;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
-public class GereDroneOpenCV extends GereDrone  {
+/**
+
+ * 
+
+ * Class derived from DroneManager to enable OpenCV features on the application.
+ 
+ */
+public class DroneManager_OpenCV extends DroneManager  {
 
 	
 	
-	GereThreadsOpenCV mThreadsCV;
+	ThreadsManager_OpenCV mThreadsCV;
 	
-	public GereDroneOpenCV(String CommandeStart, String Adresse, int iPort,
-			JoyActivityOpenCV joyActivity) {
+	public DroneManager_OpenCV(String CommandeStart, String Adresse, int iPort,
+			DroneUI_OpenCV joyActivity) {
 		sAdresse = Adresse;
 		iPortDrone = iPort;
 		CommandeGenere = CommandeStart;
 		mJoy = joyActivity;
 		
 
-		mThreadsCV = new GereThreadsOpenCV(this);
+		mThreadsCV = new ThreadsManager_OpenCV(this);
 		
 		udp_socket = CreationSocketPacket(CommandeStart, iPort, Adresse); // CREATION DU SOCKET
 
 
-		NavRec = new NavdataReceiver(udp_socket); //
+		NavRec = new SensorData_Receiver(udp_socket); //
 		
 		mThreadsCV.StartDonnee();
 		

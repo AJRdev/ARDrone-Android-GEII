@@ -6,7 +6,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 import com.example.projet_er4_v1.R;
-import com.project.ardrone_android_geii.JoyActivityVideo.*;
+import com.project.ardrone_android_geii.Drone_UI.*;
 
 import android.app.Activity;
 import android.app.AlertDialog.Builder;
@@ -25,8 +25,14 @@ import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/**
 
-public class ReglageActivity extends Activity {
+ * 
+
+ * Class handling the settings tab UI.
+ 
+ */
+public class SettingsManager extends Activity {
 	 
 	
 	private SeekBar SeekBarAngleMax;

@@ -4,10 +4,17 @@ import android.view.InputDevice;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 
-public class GereManette
+/**
+
+ * 
+
+ * Class handling inputs for bluetooth physical controllers.
+ 
+ */
+public class PhysicalJoystickManager
 {
 	
-	public GereManette()
+	public PhysicalJoystickManager()
 	{
 		
 		

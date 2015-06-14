@@ -25,8 +25,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+/**
 
-public class Menu_Activity extends Activity {
+ * 
+
+ * Class managing the Main Menu UI of the Application.
+ 
+ */
+public class Menu_UI extends Activity {
 
 
 
@@ -148,13 +154,13 @@ public class Menu_Activity extends Activity {
 
 		if(iMode==1 || iMode==2){
 			Toast.makeText(getApplicationContext(), "Base réinitialisée", Toast.LENGTH_SHORT).show();
-			Intent myIntent = new Intent(Menu_Activity.this,JoyActivityVideo.class); 
+			Intent myIntent = new Intent(Menu_UI.this,Drone_UI.class); 
 			startActivityForResult(myIntent,50);
 
 		}else{
 
 			Toast.makeText(getApplicationContext(), "Base réinitialisée", Toast.LENGTH_SHORT).show();
-			Intent myIntent = new Intent(Menu_Activity.this,JoyActivityOpenCV.class); 
+			Intent myIntent = new Intent(Menu_UI.this,DroneUI_OpenCV.class); 
 
 			startActivityForResult(myIntent,50);
 
@@ -263,13 +269,13 @@ public class Menu_Activity extends Activity {
 
 
 
-			if(JoyActivityVideo.bBaseDonnee == true){
+			if(Drone_UI.bBaseDonnee == true){
 
 				//SEULEMENT SI LE DRONE EST EN VOL
 
 				MaBase.execSQL("INSERT INTO BoiteNoir (Time, Speed, Battery, Altitude, Yaw, Pitch, Roll) " +			//COMMANDE SQL
-						"VALUES (" + iTime + ", " + GereDrone.iSpeed + ", " + GereDrone.iBatterie + ", " + GereDrone.iAltitude +
-						", " + GereDrone.iYaw + ", " + GereDrone.iPitch + ", " + GereDrone.iRoll + ")");
+						"VALUES (" + iTime + ", " + DroneManager.iSpeed + ", " + DroneManager.iBatterie + ", " + DroneManager.iAltitude +
+						", " + DroneManager.iYaw + ", " + DroneManager.iPitch + ", " + DroneManager.iRoll + ")");
 
 				iTime++;
 			}

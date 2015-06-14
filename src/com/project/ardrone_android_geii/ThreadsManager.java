@@ -14,8 +14,14 @@ import android.view.SurfaceView;
 
 
 
+/**
 
-public class GereThreads {
+ * 
+
+ * Class managing the different threads of the application.
+ 
+ */
+public class ThreadsManager {
 	
 	TaskChrono mTaskChrono;
 	Thread tTaskDonnee;
@@ -26,13 +32,13 @@ public class GereThreads {
 	Thread tTaskWatchDog;
 	Thread tTaskEmergency;
 	
-	GereDrone mDrone;
-	GereDroneOpenCV mDroneCV;
+	DroneManager mDrone;
+	DroneManager_OpenCV mDroneCV;
 	
 	Boolean isDonnee = true;	
 	Boolean bWatchDog = true;
 	
-	public GereThreads(GereDroneOpenCV Drone){			// CONSTRUCTEUR RECOI l'objet de classe JoyActivityVideo en parametre
+	public ThreadsManager(DroneManager_OpenCV Drone){			// CONSTRUCTEUR RECOI l'objet de classe JoyActivityVideo en parametre
 		
 		mDroneCV = Drone;
 		mTaskChrono = new TaskChrono();
@@ -40,7 +46,7 @@ public class GereThreads {
 	}
 	
 	
-	public GereThreads(GereDrone Drone){			// CONSTRUCTEUR RECOI l'objet de classe JoyActivityVideo en parametre
+	public ThreadsManager(DroneManager Drone){			// CONSTRUCTEUR RECOI l'objet de classe JoyActivityVideo en parametre
 		
 		mDrone = Drone;
 		mTaskChrono = new TaskChrono();
@@ -161,7 +167,7 @@ public class GereThreads {
 		@Override
 		public void run() {			
 			do {	
-				Log.v(JoyActivityOpenCV.TAG, "GereThreadsNormal: TaskPilotage run ");
+				Log.v(DroneUI_OpenCV.TAG, "GereThreadsNormal: TaskPilotage run ");
 				//INCREMENT LE NUMERO DE SEQUENCE
 				mDrone.IncrementSeq();	
 				//ASSEMBLAGE DE LA COMMANDE
@@ -188,12 +194,12 @@ public class GereThreads {
 				mDrone.NavRec.ReceiveNavdata();
 				mDrone.NavRec.NoSleep();
 
-				GereDrone.iBatterie = mDrone.NavRec.GetBattery();
-				GereDrone.iAltitude = mDrone.NavRec.GetAltitude();			
-				GereDrone.iYaw = mDrone.NavRec.GetYaw();
-				GereDrone.iPitch = mDrone.NavRec.GetPitch();
-				GereDrone.iRoll = mDrone.NavRec.GetRoll();
-				GereDrone.iSpeed = mDrone.NavRec.GetSpeed();
+				DroneManager.iBatterie = mDrone.NavRec.GetBattery();
+				DroneManager.iAltitude = mDrone.NavRec.GetAltitude();			
+				DroneManager.iYaw = mDrone.NavRec.GetYaw();
+				DroneManager.iPitch = mDrone.NavRec.GetPitch();
+				DroneManager.iRoll = mDrone.NavRec.GetRoll();
+				DroneManager.iSpeed = mDrone.NavRec.GetSpeed();
 				mDrone.AttenteMs(30);
 
 												    
@@ -212,11 +218,11 @@ public class GereThreads {
 			
 			mDrone.AttenteMs(50);
 			mDrone.IncrementSeq();
-			mDrone.EnvoiTrameUDP("AT*CONFIG="+mDrone.iVal+",\"control:euler_angle_max\",\""+ReglageActivity.fAngleMax+"\"");
+			mDrone.EnvoiTrameUDP("AT*CONFIG="+mDrone.iVal+",\"control:euler_angle_max\",\""+SettingsManager.fAngleMax+"\"");
 				
 			mDrone.AttenteMs(50);
 			mDrone.IncrementSeq();
-			mDrone.EnvoiTrameUDP("AT*CONFIG="+mDrone.iVal+",\"control:altitude_max\",\""+ReglageActivity.iAltMax+"\"");
+			mDrone.EnvoiTrameUDP("AT*CONFIG="+mDrone.iVal+",\"control:altitude_max\",\""+SettingsManager.iAltMax+"\"");
 				
 			/*mDrone.AttenteMs(50);
 			mDrone.IncrementSeq();
@@ -224,11 +230,11 @@ public class GereThreads {
 				
 			mDrone.AttenteMs(50);
 			mDrone.IncrementSeq();
-			mDrone.EnvoiTrameUDP("AT*CONFIG="+mDrone.iVal+",\"control:control_vz_max\",\""+ReglageActivity.iGazSpeed+"\"");
+			mDrone.EnvoiTrameUDP("AT*CONFIG="+mDrone.iVal+",\"control:control_vz_max\",\""+SettingsManager.iGazSpeed+"\"");
 				
 			mDrone.AttenteMs(50);
 			mDrone.IncrementSeq();
-			mDrone.EnvoiTrameUDP("AT*CONFIG="+mDrone.iVal+",\"control:control_yaw\",\""+ReglageActivity.fYawSpeed+"\"");
+			mDrone.EnvoiTrameUDP("AT*CONFIG="+mDrone.iVal+",\"control:control_yaw\",\""+SettingsManager.fYawSpeed+"\"");
 				
 			mDrone.AttenteMs(50);
 			mDrone.IncrementSeq();

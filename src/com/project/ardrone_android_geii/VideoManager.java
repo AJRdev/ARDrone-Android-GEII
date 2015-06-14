@@ -16,17 +16,17 @@ import android.util.Log;
 
  * 
 
- * Class allowing to playback the video stream from the drone on a SurfaceView.
+ * Class managing the video stream coming from the Drone.
  
  */
-public class GereVideo implements OnBufferingUpdateListener, OnCompletionListener, OnPreparedListener, OnVideoSizeChangedListener {
+public class VideoManager implements OnBufferingUpdateListener, OnCompletionListener, OnPreparedListener, OnVideoSizeChangedListener {
 	MediaPlayer mMediaPlayer;
-	JoyActivityVideo joyActivity;
+	Drone_UI joyActivity;
 	private String TAG = "Fcking NOTIF";
 
 
 
-	public GereVideo(JoyActivityVideo joy){			
+	public VideoManager(Drone_UI joy){			
 		joyActivity = joy;
 
 

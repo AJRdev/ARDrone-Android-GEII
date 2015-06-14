@@ -20,7 +20,7 @@ import io.vov.vitamio.MediaPlayer;
  * 
 
  * Class allowing to get a frame from the MediaPlayer which streams the video and save it
-into the local storage of the phone.
+into the local storage of the device.
 
  */
 public class PhotoSaver {

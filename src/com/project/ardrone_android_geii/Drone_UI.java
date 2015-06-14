@@ -21,15 +21,22 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.view.MotionEvent;
 
-public class JoyActivityVideo extends Activity implements SurfaceHolder.Callback{
+/**
+
+ * 
+
+ * Class managing the Drone Piloting Activity UI.
+ 
+ */
+public class Drone_UI extends Activity implements SurfaceHolder.Callback{
 
 
-	GereDrone Drone;			// DECLARATIONS
-	GereCommande Commande;
-	GereManette Manette;
+	DroneManager Drone;			// DECLARATIONS
+	JoystickCommandManager Commande;
+	PhysicalJoystickManager Manette;
 	JoystickView joy1;
 	JoystickView joy2;
-	GereVideo mVideo;
+	VideoManager mVideo;
 
 
 	public static String sData;
@@ -79,11 +86,11 @@ public class JoyActivityVideo extends Activity implements SurfaceHolder.Callback
 
 
 
-	public JoyActivityVideo() {
+	public Drone_UI() {
 
-		Drone = new GereDrone(CommandeDepart, AdresseDrone, iPort, this);		// INSTANTIATION D'UN DRONE
-		Commande = new GereCommande();
-		Manette = new GereManette();
+		Drone = new DroneManager(CommandeDepart, AdresseDrone, iPort, this);		// INSTANTIATION D'UN DRONE
+		Commande = new JoystickCommandManager();
+		Manette = new PhysicalJoystickManager();
 
 
 		Commande.roll = "0";
@@ -139,7 +146,7 @@ public class JoyActivityVideo extends Activity implements SurfaceHolder.Callback
 			return;
 
 
-		if (Menu_Activity.bVideo == true){
+		if (Menu_UI.bVideo == true){
 			setContentView(R.layout.joy_video);
 		}
 		else {
@@ -155,9 +162,9 @@ public class JoyActivityVideo extends Activity implements SurfaceHolder.Callback
 		actionBar.hide();
 
 
-		if (Menu_Activity.bVideo == true){
+		if (Menu_UI.bVideo == true){
 
-			mVideo = new GereVideo (this);
+			mVideo = new VideoManager (this);
 			mPreview = (SurfaceView) findViewById(R.id.surface);
 			holder = mPreview.getHolder();
 			holder.addCallback(this);
@@ -203,7 +210,7 @@ public class JoyActivityVideo extends Activity implements SurfaceHolder.Callback
 	protected void onPause() {
 		
 		
-		if (Menu_Activity.bVideo){
+		if (Menu_UI.bVideo){
 			mVideo.releaseMediaPlayer();
 
 		}
@@ -220,7 +227,7 @@ public class JoyActivityVideo extends Activity implements SurfaceHolder.Callback
 	protected void onResume(){
 
 
-		if (Menu_Activity.bVideo == true){
+		if (Menu_UI.bVideo == true){
 			mVideo.playVideo();
 		}
 
@@ -239,7 +246,7 @@ public class JoyActivityVideo extends Activity implements SurfaceHolder.Callback
 	@Override
 	protected void onDestroy() {
 
-		if (Menu_Activity.bVideo == true){
+		if (Menu_UI.bVideo == true){
 			mVideo.releaseMediaPlayer();
 		}
 		this.finish();
@@ -276,7 +283,7 @@ public class JoyActivityVideo extends Activity implements SurfaceHolder.Callback
 
 	public void reglage(View view){
 
-		Intent myIntent = new Intent(JoyActivityVideo.this,ReglageActivity.class); 
+		Intent myIntent = new Intent(Drone_UI.this,SettingsManager.class); 
 		startActivityForResult(myIntent,53);
 		bReglage = true;
 
@@ -328,12 +335,12 @@ public class JoyActivityVideo extends Activity implements SurfaceHolder.Callback
 					@Override
 					public void run() {
 
-						textView2.setText(Integer.toString(GereDrone.iPitch));
-						textView1.setText(Integer.toString(GereDrone.iAltitude));
-						textView3.setText(Integer.toString(GereDrone.iBatterie));
-						textView4.setText(Integer.toString(GereDrone.iYaw));
-						textView5.setText(Integer.toString(GereDrone.iRoll));
-						textView6.setText(Integer.toString(GereDrone.iSpeed));
+						textView2.setText(Integer.toString(DroneManager.iPitch));
+						textView1.setText(Integer.toString(DroneManager.iAltitude));
+						textView3.setText(Integer.toString(DroneManager.iBatterie));
+						textView4.setText(Integer.toString(DroneManager.iYaw));
+						textView5.setText(Integer.toString(DroneManager.iRoll));
+						textView6.setText(Integer.toString(DroneManager.iSpeed));
 
 
 
@@ -444,7 +451,7 @@ public class JoyActivityVideo extends Activity implements SurfaceHolder.Callback
 
 		if (keyEvent.getKeyCode() == KeyEvent.KEYCODE_BACK) { 
 
-			if (Menu_Activity.bVideo == true){
+			if (Menu_UI.bVideo == true){
 				mVideo.releaseMediaPlayer();
 			}
 
@@ -454,7 +461,7 @@ public class JoyActivityVideo extends Activity implements SurfaceHolder.Callback
 		else if (keyEvent.getKeyCode() == KeyEvent.KEYCODE_HOME) {    
 
 
-			if (Menu_Activity.bVideo == true){
+			if (Menu_UI.bVideo == true){
 				mVideo.releaseMediaPlayer();
 			}
 

@@ -22,7 +22,7 @@ import android.widget.Toast;
  * Class who handle communication with the Drone (UDP Protocols and AT Commands)
 
  */
-public class GereDrone {
+public class DroneManager {
 
 
 	ScheduledExecutorService mScheduleTaskExecutor = Executors.newScheduledThreadPool(2);
@@ -30,11 +30,11 @@ public class GereDrone {
 	public DatagramPacket udp_packet;
 	public DatagramSocket udp_socket;
 	public InetAddress adresse;
-	public JoyActivityVideo mJoy;
+	public Drone_UI mJoy;
 
 
-	GereThreads mThreads;
-	NavdataReceiver NavRec;
+	ThreadsManager mThreads;
+	SensorData_Receiver NavRec;
 
 
 	public byte[] buffer;
@@ -63,7 +63,7 @@ public class GereDrone {
 	int icSecondeU = 0;
 	int icSecondeD = 0;
 
-	public GereDrone(){
+	public DroneManager(){
 
 	}
 
@@ -86,7 +86,7 @@ public class GereDrone {
 		connection.
 
 	 */
-	public GereDrone(String CommandeStart, String Adresse, int iPort, JoyActivityVideo joyActivity){			// CONSTRUCTEUR RECOI l'objet de classe MainActivity en parametre
+	public DroneManager(String CommandeStart, String Adresse, int iPort, Drone_UI joyActivity){			// CONSTRUCTEUR RECOI l'objet de classe MainActivity en parametre
 
 		sAdresse = Adresse;
 		iPortDrone = iPort;
@@ -94,12 +94,12 @@ public class GereDrone {
 		mJoy = joyActivity;
 
 
-		mThreads = new GereThreads(this);
+		mThreads = new ThreadsManager(this);
 
 		udp_socket = CreationSocketPacket(CommandeStart, iPort, Adresse); // CREATION DU SOCKET
 
 
-		NavRec = new NavdataReceiver(udp_socket); //
+		NavRec = new SensorData_Receiver(udp_socket); //
 
 		mThreads.StartDonnee();
 

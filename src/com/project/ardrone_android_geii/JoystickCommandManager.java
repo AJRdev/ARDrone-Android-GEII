@@ -1,9 +1,15 @@
 package com.project.ardrone_android_geii;
 
+/**
 
-public class GereCommande {
+ * 
 
-	public Menu_Activity ClasseMain;
+ * Class handling the commands from the virtual Joysticks.
+ 
+ */
+public class JoystickCommandManager {
+
+	public Menu_UI ClasseMain;
 	
 	//Constant Command Strings
 	public static final  String i5Pourcents = "1028443341";					
@@ -27,7 +33,7 @@ public class GereCommande {
 	String yaw;
 	String sData;
 
-	public GereCommande(){									
+	public JoystickCommandManager(){									
 
 		sData = "0,0,0,0";
 

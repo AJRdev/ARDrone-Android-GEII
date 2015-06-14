@@ -34,7 +34,14 @@ import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class JoyActivityOpenCV extends JoyActivityVideo {
+/**
+
+ * 
+
+ * Class derived from Drone_UI managing the Drone Piloting Activity UI with OpenCV features enabled.
+ 
+ */
+public class DroneUI_OpenCV extends Drone_UI {
 
 	public static final String TAG = "MediaPlayerDemo";
 	static final String TAG_OpenCV = "OPENCV DEBUG";
@@ -44,10 +51,10 @@ public class JoyActivityOpenCV extends JoyActivityVideo {
 	private Surface mSurface;
 
 
-	private GereVideoOpenCV mVideoOpenCV;
+	private VideoManager_OpenCV mVideoOpenCV;
 
 
-	private ColorBlobDetector mDetector;
+	private ColorDetector_OpenCV mDetector;
 	private Mat mSpectrum;
 	private Scalar mBlobColorRgba;
 	private Scalar mBlobColorHsv;
@@ -68,18 +75,18 @@ public class JoyActivityOpenCV extends JoyActivityVideo {
 	private TextureView mTextureView;
 	public TextView mtV_video;
 
-	GereDroneOpenCV DroneCV;
+	DroneManager_OpenCV DroneCV;
 
 	static boolean bOpenCV= false;
 	static int iCoorRec;
 	public static int mVideoW;
 
 
-	public JoyActivityOpenCV(){
+	public DroneUI_OpenCV(){
 
-		DroneCV = new GereDroneOpenCV(CommandeDepart, AdresseDrone, iPort, this);
-		Commande = new GereCommande();
-		Manette = new GereManette();
+		DroneCV = new DroneManager_OpenCV(CommandeDepart, AdresseDrone, iPort, this);
+		Commande = new JoystickCommandManager();
+		Manette = new PhysicalJoystickManager();
 
 
 		Commande.roll = "0";
@@ -150,7 +157,7 @@ public class JoyActivityOpenCV extends JoyActivityVideo {
 		actionBar.hide();
 
 
-		mVideoOpenCV = new GereVideoOpenCV(this);
+		mVideoOpenCV = new VideoManager_OpenCV(this);
 
 
 		mTextureView = (TextureView) findViewById(R.id.texture_view1);   	
@@ -390,7 +397,7 @@ public class JoyActivityOpenCV extends JoyActivityVideo {
 
 		super.onResume();
 
-		mDetector = new ColorBlobDetector();
+		mDetector = new ColorDetector_OpenCV();
 		mSpectrum = new Mat();
 		mBlobColorRgba = new Scalar(255);
 		mBlobColorHsv = new Scalar(255);
@@ -632,12 +639,12 @@ public class JoyActivityOpenCV extends JoyActivityVideo {
 					@Override
 					public void run() {
 
-						textView2.setText(Integer.toString(GereDroneOpenCV.iPitch));
-						textView1.setText(Integer.toString(GereDroneOpenCV.iAltitude));
-						textView3.setText(Integer.toString(GereDroneOpenCV.iBatterie));
-						textView4.setText(Integer.toString(GereDroneOpenCV.iYaw));
-						textView5.setText(Integer.toString(GereDroneOpenCV.iRoll));
-						textView6.setText(Integer.toString(GereDroneOpenCV.iSpeed));
+						textView2.setText(Integer.toString(DroneManager_OpenCV.iPitch));
+						textView1.setText(Integer.toString(DroneManager_OpenCV.iAltitude));
+						textView3.setText(Integer.toString(DroneManager_OpenCV.iBatterie));
+						textView4.setText(Integer.toString(DroneManager_OpenCV.iYaw));
+						textView5.setText(Integer.toString(DroneManager_OpenCV.iRoll));
+						textView6.setText(Integer.toString(DroneManager_OpenCV.iSpeed));
 
 
 

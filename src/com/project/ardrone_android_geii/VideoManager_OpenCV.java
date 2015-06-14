@@ -11,12 +11,19 @@ import org.opencv.core.Mat;
 import android.os.AsyncTask;
 import android.util.Log;
 
-public class GereVideoOpenCV extends GereVideo {
+/**
 
-	JoyActivityOpenCV joyOpenCV;
+ * 
+
+ * Class derived from VideoManager managing the video stream coming from the Drone with OpenCv features enabled.
+ 
+ */
+public class VideoManager_OpenCV extends VideoManager {
+
+	DroneUI_OpenCV joyOpenCV;
 	
 
-	public GereVideoOpenCV(JoyActivityOpenCV joy) {
+	public VideoManager_OpenCV(DroneUI_OpenCV joy) {
 		super(joy);
 		joyOpenCV=joy;
 		// TODO Auto-generated constructor stub
@@ -101,8 +108,8 @@ public class GereVideoOpenCV extends GereVideo {
 
 			if(joyOpenCV.mRgba == null){
 				joyOpenCV.mRgba = new Mat(joyOpenCV.video.getHeight(), joyOpenCV.video.getWidth(), CvType.CV_8UC4);
-				JoyActivityOpenCV.mVideoH = joyOpenCV.video.getHeight();
-				JoyActivityOpenCV.mVideoW = joyOpenCV.video.getWidth();
+				DroneUI_OpenCV.mVideoH = joyOpenCV.video.getHeight();
+				DroneUI_OpenCV.mVideoW = joyOpenCV.video.getWidth();
 			}
 			if(joyOpenCV.modified == null){
 				joyOpenCV.modified = new Mat();
