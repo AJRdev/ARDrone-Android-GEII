@@ -88,12 +88,12 @@ public class VideoManager_OpenCV extends VideoManager {
 
 		if(mp.getCurrentFrame() != null){
 
-			Log.v(joyOpenCV.TAG_OpenCV, "LA FRAME EST LA" );
+			Log.v(joyOpenCV.TAG_OpenCV, "The Frame is here !" );
 
 		}
 		if(joyOpenCV.video == null){
 
-			Log.v(joyOpenCV.TAG_OpenCV, "video null !! OMG" );
+			Log.v(joyOpenCV.TAG_OpenCV, "The Frame is NULL !" );
 
 		}
 
