@@ -23,7 +23,8 @@ The differents goals reached at this point are :
 * Choose to import "Projet_ARDrone_GEII" and "InitActivity" (contains Vitamio Library)
 * Build the project on your android phone
 * Turn on your Drone and connect your phone to the AR Drone Wifi hotspot
-* Launch the AR-Drone-Android application, click on the “Pilotage” button and then on the “Décollage” button
+* Launch the AR-Drone-Android application, on the main menu you able with tab at the top right to choose 3 piloting modes : manual without the video stream, manual with the video stream and automatic with the OpenCV features.
+* After choosing your mode, click on the “Pilotage” button and then on the “Décollage” button
 You should now be able to control your Drone
 
 ##Project's Wiki:
