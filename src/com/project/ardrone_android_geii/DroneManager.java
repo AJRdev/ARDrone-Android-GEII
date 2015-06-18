@@ -96,10 +96,9 @@ public class DroneManager {
 
 		mThreads = new ThreadsManager(this);
 
-		udp_socket = CreationSocketPacket(CommandeStart, iPort, Adresse); // CREATION DU SOCKET
+		udp_socket = CreationSocketPacket(CommandeStart, iPort, Adresse); // Socket creation
 
-
-		NavRec = new SensorData_Receiver(udp_socket); //
+		NavRec = new SensorData_Receiver(udp_socket); 
 
 		mThreads.StartDonnee();
 
@@ -197,17 +196,17 @@ executed in a thread.
 
 	/**
 
-	 *	This function resets the variables (chronometer sequence, flight’s
+	 *	This function resets the variables (chronometer sequence, flightâ€™s
 
 Boolean ..) and then start Piloting threads, which use 
 
 EnvoiTrameUDP() function to send the AT command.
 
 	 */
-	public void decollage() { // BOUTTON DECOLLAGE, LANCE LE THREAD DE DECOLLAGE ET DE PILOTAGE
+	public void decollage() { 
 
 
-		//	RelanceSocketThreadDonnee();
+	
 
 
 		mThreads.bWatchDog = false;
@@ -243,7 +242,7 @@ EnvoiTrameUDP() function to send the AT command.
 
 	 */
 	
-	public void atterissage() { // ATTERIT ET ARRETE LE THREAD DE PILOTAGE, LE REMPLACE PAR LE WATCHDOG
+	public void atterissage() { 
 
 
 		mScheduleTaskExecutor.shutdownNow();
@@ -266,7 +265,7 @@ EnvoiTrameUDP() function to send the AT command.
 
 	}
 
-	public void emergency() {				// boutton atterissage d'urgence
+	public void emergency() {				// Emergency button
 
 		mScheduleTaskExecutor.shutdownNow();
 		mScheduleTaskExecutor = Executors.newSingleThreadScheduledExecutor();
@@ -282,7 +281,7 @@ EnvoiTrameUDP() function to send the AT command.
 	}
 
 
-	public void AttenteMs(int iMSeconde) { // FONCTION UTILE D'ATTENTE NON BLOQUANTE
+	public void AttenteMs(int iMSeconde) { 
 
 
 		try {
@@ -294,7 +293,7 @@ EnvoiTrameUDP() function to send the AT command.
 	}
 
 
-	public void IncrementSeq() { // INCREMENTE LA VARIABLE DE SEQUENCE
+	public void IncrementSeq() { // Sequence Variable Incrementation
 		if (iVal >= 1000) {
 			iVal = 1;
 		} else {
