@@ -48,7 +48,7 @@ Used to do all image processing for color detection and tracking
 
 ##Authors :
 
-This project has been made by a group of 5 students of [the GEII (Electrical and Industrial Computing Engineering) department](http://www.iut-acy.univ-savoie.fr/dut/geii/) of [the University of Savoie](https://www.univ-smb.fr/) in France for their last year term project.
+This project has been made by a group of 5 students of [the GEII (Electrical and Industrial Computing Engineering) department](http://www.iut-acy.univ-savoie.fr/dut/geii/) of [Université Savoie Mont Blanc](https://www.univ-smb.fr/) in France for their last year term project.
 
 **Students :**
 
